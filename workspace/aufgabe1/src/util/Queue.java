@@ -121,9 +121,7 @@ public final class Queue {
             throw new NoSuchElementException("Queue is empty");
         Object result = data[head];
         data[head] = null;
-        /* TODO: head richtig erhoehen.
-         * Hinweis: Es ist noch etwas zu beachten!
-         */
+        head += 1;
         return result;
     }
 
