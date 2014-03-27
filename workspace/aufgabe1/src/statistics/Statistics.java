@@ -51,7 +51,13 @@ public final class Statistics {
          * Hinweis: mit (Double) data[i] erhaelt man eine double-Zahl
          * (Cast von Object -> Double und Autoboxing nach double)
          */
-        return 0.0;
+    	double result = 0.0;
+    	
+    	for(int i = 0; i < data.length; i++) {
+    		result += (double) data[i];
+    	}
+    	
+        return result;
     }
 
     /**
@@ -64,7 +70,14 @@ public final class Statistics {
          * Hinweis: mit (Double) data[i] erhaelt man eine double-Zahl
          * (Cast von Object -> Double und Autoboxing nach double)
          */
-        return 0.0;
+    	double result = 0.0;
+    	
+    	for(int i = 0; i < data.length; i++) {
+    		double tmp = (double) data[i];
+    		result += tmp * tmp;
+    	}
+    	
+        return result;
     }
 
     /**
