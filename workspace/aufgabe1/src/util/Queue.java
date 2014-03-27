@@ -98,9 +98,9 @@ public final class Queue {
         /*
          * TODO: ist hier ein Fehler?
          */
-        if (size > capacity())
+        if (size >= capacity())
             setCapacityTo(2 * size);
-        int putIdx = head + size;
+        int putIdx = (head + size) % data.length;
         data[putIdx] = x;
         size += 1;
     }
@@ -121,7 +121,8 @@ public final class Queue {
             throw new NoSuchElementException("Queue is empty");
         Object result = data[head];
         data[head] = null;
-        head += 1;
+        size -= 1;
+        head = (head + 1) % data.length;
         return result;
     }
 
