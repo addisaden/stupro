@@ -1,5 +1,7 @@
 package bank;
 
+import util.Array;
+
 /**
  * Die Klasse stellt die einzige oeffentliche Schnittstelle fuer den Umgang mit einem Konto
  * dar.
@@ -11,8 +13,7 @@ package bank;
  */
 public final class Bank {
     private final String name;
-    private final Konto[] konten = new Konto[100];
-    private int anzahlKonten = 0;
+    private final Array<Konto> konten = new Array<Konto>();
     
     /**
      * Erzeugt eine neue Bank.
@@ -32,9 +33,9 @@ public final class Bank {
      * @return Kontonummer
      */
     public int neuesKonto() {
-        int kontoNr = anzahlKonten + 1;
-        konten[anzahlKonten++] = new Konto(name + ": " + kontoNr);
-        return kontoNr;
+        Konto result = new Konto(name + ": " + konten.size());
+        konten.add(result);
+        return konten.indexOf(result);
     }
     
     /**
@@ -46,7 +47,7 @@ public final class Bank {
      * @throws IllegalArgumentException bei falscher Eingabe
      */
     public void barEinzahlen(int nr, double betrag) {
-        getKonto(nr).barEinzahlen(betrag);
+    	getKonto(nr).barEinzahlen(betrag);
     }
     
     /**
@@ -58,7 +59,7 @@ public final class Bank {
      * @throws IllegalArgumentException bei falscher Eingabe
      */
     public void barAuszahlen(int nr, double betrag) {
-        getKonto(nr).barAuszahlen(betrag);
+    	getKonto(nr).barAuszahlen(betrag);
     }
     
     /**
@@ -75,7 +76,7 @@ public final class Bank {
     public void ueberweisen(
             int quelle, Bank zielBank, int zielKonto, double betrag)
     {
-        getKonto(quelle).ueberweisen(betrag, zielBank.getKonto(zielKonto));
+    	getKonto(quelle).ueberweisen(betrag, zielBank.getKonto(zielKonto));
     }
     
     /**
@@ -97,7 +98,7 @@ public final class Bank {
      * @throws IllegalArgumentException wenn das Konto nicht existiert
      */
     public void kontobewegungenAusgeben(int kontoNr) {
-        getKonto(kontoNr).ausgabeVonAllenBuchungen();
+    	getKonto(kontoNr).ausgabeVonAllenBuchungen();
     }
     
     /**
@@ -116,9 +117,9 @@ public final class Bank {
      * @throws IndexOutOfBoundsException wenn das Konto nicht existiert
      */
     private Konto getKonto(int kontoNr) {
-        if (kontoNr <= 0 || kontoNr > anzahlKonten)
+        if (kontoNr < 0 || kontoNr >= konten.size())
             throw new IllegalArgumentException(
             		"illegale Kontonummer: " + kontoNr);
-        return konten[kontoNr - 1];
+        return konten.get(kontoNr);
     }
 }
