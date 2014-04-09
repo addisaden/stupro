@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 /**
@@ -44,14 +45,17 @@ public final class LinearMap<K, V> implements IMap<K, V> {
 
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     @Override
     public V put(K key, V value) {
+    	if(key == null)
+    		throw new NullPointerException();
+    	
         int index = indexOf(key);
         if (index == NOT_FOUND) {
-            // TODO: Was zu tun?
+            checkCapacity();
             data[size++] = new KeyValuePair<K, V>(key, value);
             return null;
         }
@@ -69,20 +73,51 @@ public final class LinearMap<K, V> implements IMap<K, V> {
 
     @Override
     public V get(K key) {
-        // TODO: Was zu tun?
+    	if(key == null)
+    		throw new NullPointerException();
+    	
+        for(int i = 0; i < size; i++) {
+        	if(data[i].getKey().equals(key)) {
+        		return data[i].getValue();
+        	}
+        }
         return null;
     }
 
     @Override
     public boolean containsKey(K key) {
-        // TODO: Was zu tun?
+    	if(key == null)
+    		throw new NullPointerException();
+    	
+        for(int i = 0; i < size; i++) {
+        	if(data[i].getKey().equals(key)) {
+        		return true;
+        	}
+        }
         return false;
     }
 
     @Override
     public V remove(K key) {
-        // TODO: Was zu tun?
-        return null;
+    	if(key == null)
+    		throw new NullPointerException();
+    	
+    	V result = null;
+    	
+    	for(int i = 0; i < size; i++) {
+    		if(result == null) {
+    			if(data[i].getKey().equals(key)) {
+    				result = data[i].getValue();
+    			}
+    		} else {
+    			data[i - 1] = data[i];
+    		}
+    	}
+    	
+    	if(result != null)
+    		size -= 1;
+    	
+        return result;
     }
 
     /**
@@ -101,7 +136,12 @@ public final class LinearMap<K, V> implements IMap<K, V> {
     private int indexOf(K key) {
         if (key == null)
             throw new NullPointerException();
-        // TODO: Was zu tun?
+        
+        for(int i = 0; i < size; i++) {
+        	if(data[i].getKey().equals(key))
+        		return i;
+        }
+        
         return NOT_FOUND;
     }
 
