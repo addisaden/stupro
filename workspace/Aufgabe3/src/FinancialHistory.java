@@ -23,11 +23,11 @@ public final class FinancialHistory {
     /**
      * The mapping of income-source to amounts of money.
      */
-    private final Map<String, Double> incomes = new HashMap<String, Double>();
+    private final IMap<String, Double> incomes = new LinearMap<String, Double>();
     /**
      * The mapping of expenditure-reasons to amounts of money.
      */
-    private final Map<String, Double> expenditures = new HashMap<String, Double>();
+    private final IMap<String, Double> expenditures = new LinearMap<String, Double>();
 
     // instance creation
 
