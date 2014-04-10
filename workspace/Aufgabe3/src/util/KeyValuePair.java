@@ -1,3 +1,4 @@
+package util;
 /**
  * Hilfsklasse fuer einzelne Eintraege.
  * 
