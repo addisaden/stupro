@@ -13,6 +13,8 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
+import util.FinancialHistory;
+
 /**
  * This is the graphical interface for class
  * <code>FinancialHistory</code>.

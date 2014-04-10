@@ -1,6 +1,8 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import util.FinancialHistory;
+
 public class FinancialHistoryTest {
     private FinancialHistory initially0;
     private FinancialHistory initially100;

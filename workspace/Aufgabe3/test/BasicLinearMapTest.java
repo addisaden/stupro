@@ -15,6 +15,9 @@ import java.util.Set;
 import org.junit.Before;
 import org.junit.Test;
 
+import util.LinearMap;
+import util.IMap;
+
 /**
  * Klassen zum Testen der LinearMap-Klasse aus dem AP-Praktikum.
  */

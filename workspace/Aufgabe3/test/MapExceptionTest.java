@@ -1,6 +1,8 @@
 
 import org.junit.Before;
 import org.junit.Test;
+import util.IMap;
+import util.LinearMap;
 
 /**
  * In LinearMap darf {@code null} nicht als Key verwendet werden.

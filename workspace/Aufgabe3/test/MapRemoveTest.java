@@ -8,6 +8,9 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
+import util.IMap;
+import util.LinearMap;
+
 /**
  * Testen der Remove-Operation von LinearMap
  * 
