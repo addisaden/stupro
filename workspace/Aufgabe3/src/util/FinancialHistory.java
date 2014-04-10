@@ -1,9 +1,7 @@
 package util;
 
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
 
 /**
  * The class <code>FinancialHistory</code>creates objects that reflect the
@@ -44,7 +42,8 @@ public final class FinancialHistory {
      */
     public static FinancialHistory initialBalance(double amount) {
         require(amount >= 0, "Amount " + amount + " is not positive");
-        FinancialHistory f = new FinancialHistory(amount);
+        FinancialHistory f = new FinancialHistory();
+        f.cashOnHand = amount;
         return f;
     }
 
@@ -52,10 +51,6 @@ public final class FinancialHistory {
      * Begin a financial history with 0 as the amount of money at hand.
      */
     public FinancialHistory() {
-    }
-    
-    FinancialHistory(double amount) {
-    	cashOnHand = amount;
     }
 
     // transaction recording

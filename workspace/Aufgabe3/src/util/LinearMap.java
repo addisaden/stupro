@@ -51,15 +51,14 @@ public final class LinearMap<K, V> implements IMap<K, V> {
 
     @Override
     public V put(K key, V value) {
-    	if(key == null)
-    		throw new NullPointerException();
+    	int index = indexOf(key);
     	
-        int index = indexOf(key);
         if (index == NOT_FOUND) {
             checkCapacity();
             data[size++] = new KeyValuePair<K, V>(key, value);
             return null;
         }
+        
         return data[index].setValue(value);
     }
 
@@ -74,28 +73,22 @@ public final class LinearMap<K, V> implements IMap<K, V> {
 
     @Override
     public V get(K key) {
-    	if(key == null)
-    		throw new NullPointerException();
+    	int key_position = indexOf(key);
     	
-        for(int i = 0; i < size; i++) {
-        	if(data[i].getKey().equals(key)) {
-        		return data[i].getValue();
-        	}
-        }
-        return null;
+    	if(key_position >= 0)
+    		return data[key_position].getValue();
+    	else
+    		return null;
     }
 
     @Override
     public boolean containsKey(K key) {
-    	if(key == null)
-    		throw new NullPointerException();
+    	int key_position = indexOf(key);
     	
-        for(int i = 0; i < size; i++) {
-        	if(data[i].getKey().equals(key)) {
-        		return true;
-        	}
-        }
-        return false;
+    	if(key_position >= 0)
+    		return true;
+    	else
+    		return false;
     }
 
     @Override
@@ -103,20 +96,17 @@ public final class LinearMap<K, V> implements IMap<K, V> {
     	if(key == null)
     		throw new NullPointerException();
     	
+    	int key_position = indexOf(key);
     	V result = null;
     	
-    	for(int i = 0; i < size; i++) {
-    		if(result == null) {
-    			if(data[i].getKey().equals(key)) {
-    				result = data[i].getValue();
-    			}
-    		} else {
+    	if(key_position >= 0) {
+    		result = data[key_position].getValue();
+    		
+    		for(int i = key_position + 1; i < size; i++)
     			data[i - 1] = data[i];
-    		}
-    	}
-    	
-    	if(result != null)
+    		
     		size -= 1;
+    	}
     	
         return result;
     }
