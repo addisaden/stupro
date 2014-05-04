@@ -47,7 +47,7 @@ public class Main extends JFrame {
         int noOfGenerations = 1;
         while (true) {
             f.status.setText(String.valueOf(noOfGenerations++));
-            delay(200);
+            delay(100);
             thisWorld.computeNextGeneration();
             f.repaint();
         }
