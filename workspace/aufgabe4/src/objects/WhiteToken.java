@@ -20,8 +20,7 @@ final class WhiteToken implements Token {
 	}
 
 	public boolean isBlack() {
-	    // TODO korrigieren
-		return true;
+		return false;
 	}
 
     /**
@@ -33,7 +32,16 @@ final class WhiteToken implements Token {
      * @return Farbe der naechsten Runde
      */
     public Token nextGeneration(Token[] neighbours) {
-        // TODO Rueckgabe des richtigen Objekts.
-    	return null;
+    	int count_black = 0;
+    	
+    	for(int i = 0; i < neighbours.length; i++) {
+    		if(neighbours[i].isBlack())
+    			count_black++;
+    	}
+    	
+    	if(count_black == 3)
+    		return BlackToken.instance();
+    	else
+    		return this;
     }
 }
