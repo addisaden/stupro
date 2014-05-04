@@ -21,17 +21,17 @@ public class WorldFactory {
     	int middle_y = ny / 2;
     	
     	int[][] set_black = {
-    			{middle_x, middle_y},
-    			{middle_x - 1, middle_y},
-    			{middle_x, middle_y - 1},
-    			{middle_x + 1, middle_y -1},
-    			{middle_x, middle_y + 1}
+    			{0, 0},  //mitte
+    			{-1, 0}, //links
+    			{0, -1}, //oben
+    			{1, -1}, //oben
+    			{0, 1}   //unten
     	};
     	
     	World world = new World(nx, ny);
     	
     	for(int i = 0; i < set_black.length; i++) {
-    		world.set(set_black[i][0], set_black[i][1], BlackToken.instance());
+    		world.set(middle_x + set_black[i][0], middle_y + set_black[i][1], BlackToken.instance());
     	}
     	
         return world;
