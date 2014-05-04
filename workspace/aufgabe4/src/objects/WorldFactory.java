@@ -17,8 +17,24 @@ public class WorldFactory {
      * @return das initialisierte World-Objekt
      */
     public static World createPentomino(int nx, int ny) {
-        // TODO das Feld mit dem Pentomino (s.o.) belegen.
-        return null;
+    	int middle_x = nx / 2;
+    	int middle_y = ny / 2;
+    	
+    	int[][] set_black = {
+    			{middle_x, middle_y},
+    			{middle_x - 1, middle_y},
+    			{middle_x, middle_y - 1},
+    			{middle_x + 1, middle_y -1},
+    			{middle_x, middle_y + 1}
+    	};
+    	
+    	World world = new World(nx, ny);
+    	
+    	for(int i = 0; i < set_black.length; i++) {
+    		world.set(set_black[i][0], set_black[i][1], BlackToken.instance());
+    	}
+    	
+        return world;
     }
     
     /**

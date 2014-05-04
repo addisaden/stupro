@@ -41,7 +41,7 @@ public class Main extends JFrame {
     public static void main(String[] args) {
         // true = zufaelliger Anfang
         // false = Anfang = "Pentomino"
-        World thisWorld = WorldFactory.createWorld(150, 150, true);
+        World thisWorld = WorldFactory.createWorld(150, 150, false);
         Main f = new Main(thisWorld);
         f.repaint();
         int noOfGenerations = 1;
