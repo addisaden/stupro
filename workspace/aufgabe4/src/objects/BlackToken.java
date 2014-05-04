@@ -20,7 +20,7 @@ final class BlackToken implements Token {
 	}
 	
 	/**
-     * TODO richtiger Kommentar
+     * Liefert true zurück, weil der Token schwarz ist.
 	 */
 	public boolean isBlack() {
 		return true;

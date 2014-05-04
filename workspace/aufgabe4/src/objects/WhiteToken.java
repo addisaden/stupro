@@ -19,6 +19,9 @@ final class WhiteToken implements Token {
 		return instance;
 	}
 
+	/**
+     * Liefert false zurück, weil der Token weiß ist.
+	 */
 	public boolean isBlack() {
 		return false;
 	}
