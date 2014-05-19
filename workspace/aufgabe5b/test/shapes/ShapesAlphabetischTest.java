@@ -17,10 +17,9 @@ public class ShapesAlphabetischTest {
     public void initialize() {
         c1 = new Circle("alfa", 10.0);
         c2 = new Circle("delta", 10.0);
-        // TODO: Kommentar entfernen!
-        // r1 = new Rectangle("beta", 10, 20);
-        // r2 = new Rectangle("alfa", 10, 20);        
-        // c = new ShapesAlphabetisch();
+        r1 = new Rectangle("beta", 10, 20);
+        r2 = new Rectangle("alfa", 10, 20);        
+        c = new ShapesAlphabetisch();
     }
     @Test
     public void testCompare() {
