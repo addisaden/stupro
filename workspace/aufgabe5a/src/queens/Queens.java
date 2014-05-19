@@ -8,6 +8,7 @@ package queens;
 public class Queens {
     private static final int NUMBER_OF_QUEENS = 8;
     private static Display display;
+    private static int runden = 0;
 
     /**
      * Initialisiert alle noetigen Objekte und ruft die Loesungssuche auf.
@@ -17,8 +18,10 @@ public class Queens {
     public static void main(String[] args) {
         BoardWithQueens b = new BoardWithQueens(NUMBER_OF_QUEENS);
         display = new Display(b);
-        if (solvable(b))
+        if (solvable(b)) {
             System.out.println("Die Loesung lautet: " + b);
+            System.out.println("Es wurden " + runden + " Schritte durchgefuehrt.");
+        }
         else
             System.out.println("Es gibt keine Loesung!");
     }
@@ -47,10 +50,11 @@ public class Queens {
     	{
     		for(int i = 0; i < board.numberOfQueens(); i++)
     		{
+    			runden++;
     			if(board.isSafe(i))
     			{
     				board.placeNextQueen(i);
-    				displayAndWait(0.1);
+    				displayAndWait(0.01);
     				if(solvable(board))
     				{
     					return true;
@@ -58,7 +62,7 @@ public class Queens {
     				else
     				{
     					board.removeLastQueen();
-    					displayAndWait(0.3);
+    					displayAndWait(0.03);
     				}
     			}
     		}
