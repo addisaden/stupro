@@ -29,8 +29,7 @@ public final class Application {
                 String name = Console.readLine("Name:");
                 double laenge = Console.readDouble("Laenge:");
                 double breite = Console.readDouble("Breite:");
-                // TODO: Kommentar entfernen!
-                // liste.add(new Rectangle(name, laenge, breite));           
+                liste.add(new Rectangle(name, laenge, breite));           
             }
         });
         menu.add("Kreis erzeugen", 'k', new Command() {
@@ -48,8 +47,7 @@ public final class Application {
         });
         menu.add("nach Name sortiert ausgeben", 'n', new Command() {
             public void run() {
-                // TODO: Kommentar entfernen!
-                // Collections.sort(liste, new ShapesAlphabetisch());
+                Collections.sort(liste, new ShapesAlphabetisch());
                 printList("nach Name sortiert: ", liste);
             }
         });
