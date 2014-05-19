@@ -31,8 +31,39 @@ public class Queens {
      * @return <tt>true</tt> wenn eine Loesung gefunden wurde
      */
     private static boolean solvable(BoardWithQueens board) {
-        // TODO: siehe Aufgabenblatt
-        return false;
+    	// board.allDone() @return true wenn gefuellt.
+    	// board.isSafe(int row) @return <tt>true</tt> wenn eine Dame in der angegebenen Zeile sicher ist.
+    	// board.placeNextQueen(int row) Positioniert eine neue Dame in der aktuellen Spalte in der angegebenen Zeile. Die Dame muss dort sicher sein!
+    	// board.removeLastQueen() Entfernt die zuletzt gesetzte Dame.
+    	// board.numberOfPlacedQueens() Gibt die Anzahl (int) der erfolgreich gesetzten Damen zurueck.
+    	// board.numberOfQueens() Gibt die Groesse des Bretts zurueck. Dies ist gleich der Anzahl der zu setzenden Damen.
+    	// int[] board.getQueens() Array mit Positionen
+    	
+    	if(board.allDone())
+    	{
+    		return true;
+    	}
+    	else
+    	{
+    		for(int i = 0; i < board.numberOfQueens(); i++)
+    		{
+    			if(board.isSafe(i))
+    			{
+    				board.placeNextQueen(i);
+    				displayAndWait(0.1);
+    				if(solvable(board))
+    				{
+    					return true;
+    				}
+    				else
+    				{
+    					board.removeLastQueen();
+    					displayAndWait(0.1);
+    				}
+    			}
+    		}
+    		return false;
+    	}
     }
 
     /**
