@@ -58,7 +58,7 @@ public class Queens {
     				else
     				{
     					board.removeLastQueen();
-    					displayAndWait(0.1);
+    					displayAndWait(0.3);
     				}
     			}
     		}
