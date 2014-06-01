@@ -24,7 +24,7 @@ public class Selectionsort implements IntSort {
      */
     public void sort(int[] array) {
     	for(int i = 0; i < array.length; i++) {
-    		for(int j = i; j < array.length; j++) {
+    		for(int j = i + 1; j < array.length; j++) {
     			if(array[j] < array[i]) {
     				int tmp = array[i];
     				array[i] = array[j];
