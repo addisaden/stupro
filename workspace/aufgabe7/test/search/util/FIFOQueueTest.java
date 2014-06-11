@@ -12,7 +12,7 @@ public class FIFOQueueTest extends AbstractQueueTest {
     
     @Before
     public void setUp() {
-        //q = new search.util.FIFOQueue<Object>();
+        q = new search.util.FIFOQueue<Object>();
     }
     
     @Test
