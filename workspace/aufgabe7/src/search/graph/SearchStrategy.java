@@ -3,6 +3,8 @@ package search.graph;
 import search.util.IQueue;
 import search.util.PriorityQueue;
 import search.util.RandomQueue;
+import search.util.LIFOQueue;
+import search.util.FIFOQueue;
 
 /**
  * Die Klasse stellt ueber konstante Referenzen Factory-Objecte fuer
@@ -51,9 +53,9 @@ public enum SearchStrategy {
      */
     // TODO: am Ende Kommentar entfernen!
     LIFO {
-//        public IQueue<Path> makeQueue() {
-//            return new LIFOQueue<Path>();
-//        }
+        public IQueue<Path> makeQueue() {
+            return new LIFOQueue<Path>();
+        }
     },
 
     /**
@@ -61,9 +63,9 @@ public enum SearchStrategy {
      */
     // TODO: am Ende Kommentar entfernen!
     FIFO {
-//        public IQueue<Path> makeQueue() {
-//            return new FIFOQueue<Path>();
-//        }
+        public IQueue<Path> makeQueue() {
+            return new FIFOQueue<Path>();
+        }
     },
 
     /**

@@ -21,7 +21,7 @@ public class PriorityQueue<T> implements IQueue<T> {
      * als die Inhalte der Kindknoten.
      * 
      * Der Elternknoten p hat die Kinder
-     *       k1 = 2 * p * 1 und k2 = 2 * p + 2
+     *       k1 = 2 * p + 1 und k2 = 2 * p + 2
      * Ein Kind k hat den Elternknoten p = (k - 1) / 2.
      * 
      * Zur Vereinfachung sind die beiden Methoden parent und child angegeben.
@@ -120,6 +120,15 @@ public class PriorityQueue<T> implements IQueue<T> {
 
         // TODO: Algorithmus einfuegen
         
+        
+        while(parent > ROOT && precedes(child, parent)) {
+        	swap(parent, child);
+        	child = parent;
+        	parent = parentOf(child);
+        }
+        
+        
+        
         // Ziel wir haben einen Heap
     }
     
@@ -152,6 +161,19 @@ public class PriorityQueue<T> implements IQueue<T> {
         int child = firstChildOf(parent);
         
         // TODO: Algorithmus einfuegen
+        while(child < size) {
+        	if(precedes(child + 1, child)) {
+        		child++;
+        	}
+        	
+        	if(precedes(parent, child)) {
+        		break;
+        	} else {
+        		swap(parent, child);
+        		parent = child;
+        		child = firstChildOf(parent);
+        	}
+        }
         
         // Ziel wir haben einen Heap
     }
