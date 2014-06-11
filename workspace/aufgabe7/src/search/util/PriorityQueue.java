@@ -121,7 +121,7 @@ public class PriorityQueue<T> implements IQueue<T> {
         // TODO: Algorithmus einfuegen
         
         
-        while(parent > ROOT && precedes(child, parent)) {
+        while(child > 0 && precedes(child, parent)) {
         	swap(parent, child);
         	child = parent;
         	parent = parentOf(child);
@@ -162,7 +162,7 @@ public class PriorityQueue<T> implements IQueue<T> {
         
         // TODO: Algorithmus einfuegen
         while(child < size) {
-        	if(precedes(child + 1, child)) {
+        	if(child + 1 < size && precedes(child + 1, child)) {
         		child++;
         	}
         	
