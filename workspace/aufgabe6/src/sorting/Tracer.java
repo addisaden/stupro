@@ -31,6 +31,11 @@ public class Tracer {
             interval(array, 0, array.length);
     }
     
+    public static void print_string(String str) {
+    	if (traceOn)
+    		System.out.println(str);
+    }
+    
     /**
      * Arrayausgabe bei einem direkten Sortierverfahren.
      * 

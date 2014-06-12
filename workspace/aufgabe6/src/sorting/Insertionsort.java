@@ -23,14 +23,23 @@ public class Insertionsort implements IntSort {
      * Der Strich | trennt den sortierten von dem unsortierten Teil.
      */
     public void sort(int[] array) {
-    	for(int i = 0; i < array.length; i++) {
+    	Tracer.array(array);
+    	
+    	for(int i = 1; i < array.length; i++) {
     		int tmp = array[i];
     		int j = i;
+    		String log = "";
+    		log += "P: " + i + " M:";
     		while(j > 0 && array[j - 1] > tmp) {
     			array[j] = array[j - 1];
     			j--;
+    			log += " " + j;
     		}
+    		log += ", " + array[j] + " <-> " + tmp;
     		array[j] = tmp;
+    		
+    		Tracer.print_string(log);
+    		Tracer.array(array);
     	}
     }
 
