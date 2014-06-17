@@ -19,19 +19,19 @@ public class VM {
             }
             switch (code) {
             case ADD: {
-                // TODO: korrigieren
+                stk.push(operand1 + operand2);
                 break;
             }
             case SUB: {
-                // TODO: korrigieren
+            	stk.push(operand1 - operand2);
                 break;
             }
             case MUL: {
-                // TODO: korrigieren
+            	stk.push(operand1 * operand2);
                 break;
             }
             case DIV: {
-                // TODO: korrigieren
+            	stk.push(operand1 / operand2);
                 break;
             }
             case NEG: {

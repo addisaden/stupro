@@ -1,5 +1,6 @@
 package main;
 
+import java.util.Iterator;
 import java.util.Scanner;
 
 import parser.Parser;
@@ -29,7 +30,10 @@ final class Calculator {
                 LinkedObjects program = compile(input);
                 System.out.println("\nDer compilierte Code lautet: \n");
                 
-                // TODO: geben Sie die Liste program vollstaendig aus!
+                Iterator<Object> pc = program.iterator();
+                while (pc.hasNext()) {
+                	System.out.println(pc.next());
+                }
                 
                 System.out.println();
                 System.out.println("Das Ergebnis lautet: " +
