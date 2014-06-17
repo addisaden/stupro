@@ -49,26 +49,35 @@ public class LinkedObjects implements Iterable<Object> {
     
     // Fuegt am Ende hinzu
     public void add(Object obj) {
-        // TODO: korrigieren
+        Link current = new Link(obj, head.prev, head);
+        head.prev.next = current;
+        head.prev = current;
     }
     
     public void addFirst(Object obj) {
-        // TODO: korrigieren
+        Link current = new Link(obj, head, head.next);
+        head.next.prev = current;
+        head.next = current;
     }
     
     public Object removeFirst() {
-        // TODO: korrigieren
-        return null;
+    	if (head.next == head) throw new NoSuchElementException();
+    	
+        Object result = head.next.obj;
+        head.next = head.next.next;
+        return result;
     }
     
     public Object removeLast() {
-        // TODO: korrigieren
-        return null;
+    	if (head.prev == head) throw new NoSuchElementException();
+    	
+    	Object result = head.prev.obj;
+    	head.prev = head.prev.prev;
+        return result;
     }
 
     public boolean isEmpty() {
-        // TODO: korrigieren
-        return true;
+        return (head.next == head) && (head.prev == head);
     }
 
     @Override
@@ -79,15 +88,14 @@ public class LinkedObjects implements Iterable<Object> {
 
             @Override
             public boolean hasNext() {
-                // TODO: korrigieren
-                return false;
+                return current != head;
             }
             @Override
             public Object next() {
                 if (!hasNext()) throw new NoSuchElementException();
                 removable = true;
                 Object result = current.obj;
-                // TODO: korrigieren
+                current = current.next;
                 return result;
             }
             @Override
