@@ -1,0 +1,2 @@
+javac Rechner
+javap -c Rechner
