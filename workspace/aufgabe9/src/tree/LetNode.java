@@ -15,14 +15,14 @@ public class LetNode implements Node {
     }
 
     public double value() {
-        double value = 0.0;
-        // TODO korrigieren
-        /*
+    	/*
          * Vorgehensweise:
          * 1. Wert von expression berechnen.
          * 2. Wert unter varName mittels memory.Variables speichern
          * 3. Wert zurueckgeben 
          */
+        double value = expression.value();
+        Variables.store(this.varName, value);
         return value;
     }
   
