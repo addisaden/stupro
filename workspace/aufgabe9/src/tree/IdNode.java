@@ -13,11 +13,10 @@ public class IdNode implements Node {
     }
 
     public double value() {
-        // TODO korrigieren
         /*
          * Variablenwert aus memory.Variables holen und zurueckgeben.
          */
-        return 0.0;
+        return Variables.load(this.varName);
     }
 
     @Override

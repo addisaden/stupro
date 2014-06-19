@@ -23,8 +23,7 @@ abstract class BinOpNode implements Node {
      * @return Baum als String
      */
     public String toString() {
-        // TODO korrigieren
-        return "";
+        return (this.left.toString() + " " + operator() + " " + this.right.toString());
     }
     
     /**

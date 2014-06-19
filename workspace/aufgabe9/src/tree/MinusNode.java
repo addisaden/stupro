@@ -6,8 +6,7 @@ public class MinusNode extends BinOpNode {
     }
 
     public double value() {
-        // TODO korrigieren
-        return 0.0;
+        return (this.left.value() - this.right.value());
     }
     
     protected String operator() {

@@ -9,12 +9,10 @@ public class NumberNode implements Node {
     
     @Override
     public String toString() {
-        // TODO korrigieren
-        return "";
+        return (new Double(this.number)).toString();
     }
     
     public double value() {
-        // TODO korrigieren
-        return 0.0;
+        return this.number;
     }
 }

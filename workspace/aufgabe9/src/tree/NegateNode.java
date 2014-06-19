@@ -8,8 +8,7 @@ public class NegateNode implements Node {
     }
     
     public double value() {
-        // TODO korrigieren
-        return 0.0;
+        return -(expression.value());
     }
     
     @Override
