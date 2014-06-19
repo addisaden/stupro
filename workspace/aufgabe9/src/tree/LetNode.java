@@ -22,13 +22,12 @@ public class LetNode implements Node {
          * 3. Wert zurueckgeben 
          */
         double value = expression.value();
-        Variables.store(this.varName, value);
+        Variables.store(this.varName, (new Double(value)));
         return value;
     }
   
     @Override
     public String toString() {
-        // TODO korrigieren
-        return "\n";
+        return expression.toString();
     }
 }

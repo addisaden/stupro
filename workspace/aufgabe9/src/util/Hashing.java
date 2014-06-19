@@ -45,8 +45,7 @@ public  class Hashing<K,V> implements IMap<K,V> {
 
     @Override
     public boolean containsKey(K key) {
-        // TODO den richtigen Algorithmus einsetzen.
-        return false;
+    	return referenceOf(key) != null;
     }    
 
     /**
@@ -55,7 +54,20 @@ public  class Hashing<K,V> implements IMap<K,V> {
      * @return null oder Referenz auf gefundenen Entry.
      */
     private Entry<K,V> referenceOf(K key) {
-        // TODO den richtigen Suchalgorithmus (direkte Verkettung) einsetzen.
+    	if(key == null) {
+    		throw new NullPointerException();
+    	}
+    	
+    	Entry<K,V> cur = data[hash(key)];
+    	
+    	while(cur != null) {
+    		if(safeEquals(cur.key, key)) {
+    			return cur;
+    		} else {
+    			cur = cur.link;
+    		}
+    	}
+    	
     	return null;
     }
 
